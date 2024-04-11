@@ -1,0 +1,43 @@
+# Man pages
+man/
+
+# Cache
+autom4te.cache/
+configure
+configure~
+*.log
+
+# Dependencies
+.deps/
+aclocal.m4
+compile
+depcomp
+install-sh
+missing
+stamp-h1
+test-driver
+ylwrap
+
+# Generated config files
+config.status
+config.log
+config.h
+Makefile.in
+Makefile
+xmlto.spec
+
+# Binaries
+/*.o
+
+# xmlif folder
+xmlif/*
+
+# Keep this
+!xmlif/test/
+!xmlif/xmlif.c
+!xmlif/xmlif.l
+
+xmlif/test/*
+!xmlif/test/result*
+!xmlif/test/test.xml
+!xmlif/test/run-test
