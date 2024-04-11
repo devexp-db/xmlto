@@ -1,4 +1,4 @@
-#!@BASH@
+#!@XMLTO_BASH_PATH@
 #
 # @PACKAGE@ - apply an XSL stylesheet to an XML document
 # Copyright (C) 2001, 2002, 2003  Tim Waugh <twaugh@redhat.com>
@@ -17,13 +17,13 @@
 # along with this program; if not, see <http://www.gnu.org/licenses/>.
 
 # Utilities that we need that aren't everywhere
-FIND=@FIND@     # This must be GNU find (need -maxdepth)
-MKTEMP=@MKTEMP@ # See http://www.mktemp.org if missing on your system
-BASH=@BASH@     # GNU bash, for running the format scripts
-GETOPT=@GETOPT@ # a getopt that supports --longoptions
-TAIL=@TAIL@     # a tail that supports -n (posix)
-GREP=@GREP@     # GNU grep, for searching patterns
-SED=@SED@       # GNU sed, for modification of patterns
+FIND=@FIND@               # This must be GNU find (need -maxdepth)
+MKTEMP=@MKTEMP@           # See http://www.mktemp.org if missing on your system
+BASH=@XMLTO_BASH_PATH@    # GNU bash, for running the format scripts
+GETOPT=@GETOPT@           # a getopt that supports --longoptions
+TAIL=@TAIL@               # a tail that supports -n (posix)
+GREP=@GREP@               # GNU grep, for searching patterns
+SED=@SED@                 # GNU sed, for modification of patterns
 
 version () {
   echo "@PACKAGE@ version @VERSION@"
