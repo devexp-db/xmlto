@@ -1,4 +1,4 @@
-AC_INIT([xmlto],[0.0.28])
+AC_INIT([xmlto],[0.0.29])
 AC_CONFIG_SRCDIR(xmlto.spec.in)
 AM_INIT_AUTOMAKE([dist-bzip2 subdir-objects 1.6])
 AC_CONFIG_HEADERS(config.h)
