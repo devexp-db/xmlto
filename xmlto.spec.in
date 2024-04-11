@@ -2,26 +2,23 @@ Summary: A tool for converting XML files to various formats.
 Name: xmlto
 Version: @VERSION@
 Release: 0.1
-License: GPLv2+
-Group: Applications/System
-#Older versions up to xmlto-0.0.20
-#URL: http://cyberelk.net/tim/xmlto/
-#Source0: http://cyberelk.net/tim/data/xmlto/stable/%{name}-%{version}.tar.bz2
+License: GPL-2.0-or-later
+# Older versions up to xmlto-0.0.20
+# URL: http://cyberelk.net/tim/xmlto/
+# Source0: http://cyberelk.net/tim/data/xmlto/stable/%{name}-%{version}.tar.bz2
 URL: https://fedorahosted.org/xmlto/
 Source0: https://fedorahosted.org/releases/x/m/%{name}/%{name}-%{version}.tar.bz2
 
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires: docbook-xsl >= 1.56.0
+BuildRequires: make
+BuildRequires: docbook-xsl
 BuildRequires: libxslt
 BuildRequires: util-linux, flex
+BuildRequires: gcc
 
-# We rely entirely on the DocBook XSL stylesheets!
-Requires: docbook-xsl >= 1.56.0
-
-# We need one of text-www-browsers(w3m,lynx,[e]links) for full functionality
-Requires: @WEBBROWSER@
-
+# We rely heavily on the DocBook XSL stylesheets!
+Requires: docbook-xsl
 Requires: libxslt
 Requires: docbook-dtds
 Requires: util-linux, flex
@@ -31,51 +28,48 @@ This is a package for converting XML files to various formats using XSL
 stylesheets.
 
 %package tex
-Group: Applications/System
 License: GPLv2+
 Summary: A set of xmlto backends with TeX requirements
 # For full functionality, we need passivetex.
-Requires: passivetex >= 1.11
+Requires: tex-passivetex
 # We require main package
 Requires: xmlto = %{version}-%{release}
+BuildArch: noarch
 
 %description tex
 This subpackage contains xmlto backend scripts which do require
 PassiveTeX/TeX for functionality.
 
 %package xhtml
-Group: Applications/System
 License: GPLv2+
 Summary: A set of xmlto backends for xhtml1 source format
 # For functionality we need stylesheets xhtml2fo-style-xsl
 Requires: xhtml2fo-style-xsl
 # We require main package
 Requires: xmlto = %{version}-%{release}
+BuildArch: noarch
 
 %description xhtml
 This subpackage contains xmlto backend scripts for processing
 xhtml1 source format.
 
 %prep
-%setup -q
+%autosetup -p1
 
 %build
-%configure
-make
+%configure BASH=/bin/bash
+%make_build
+
+%check
 make check
 
 %install
-rm -rf %{buildroot}
-make install DESTDIR=%{buildroot} INSTALL="install -p"
+%make_install
 
-[ -d %{buildroot}%{_datadir}/xmlto/xsl ] || \
-  mkdir %{buildroot}%{_datadir}/xmlto/xsl
-
-%clean
-rm -rf %{buildroot}
 
 %files
-%defattr(-,root,root,-)
+%license COPYING
+%doc ChangeLog README.md AUTHORS.md NEWS.md
 %{_bindir}/*
 %{_mandir}/*/*
 %{_datadir}/xmlto
@@ -86,17 +80,22 @@ rm -rf %{buildroot}
 %exclude %{_datadir}/xmlto/format/xhtml1
 
 %files tex
-%defattr(-,root,root,-)
 %{_datadir}/xmlto/format/fo/dvi
 %{_datadir}/xmlto/format/fo/ps
 %{_datadir}/xmlto/format/fo/pdf
 
 %files xhtml
-%defattr(-,root,root,-)
 %dir %{_datadir}/xmlto/format/xhtml1/
 %{_datadir}/xmlto/format/xhtml1/*
 
 %changelog
+* Wed Apr 10 2024 Ondřej Sloup <osloup@redhat.com>
+- Rename variable BASH to XMLTO_BASH_PATH (#8)
+- Fix warnings in the build
+- Regenerate xmlif to use new version of gcc
+- Rename and format markdown files
+- Convert output path to unix on cygwin/msys
+
 * Wed Nov 18 2015 Ondrej Vasik <ovasik@redhat.com>
 - New version 0.0.28
 - fix broken temp files removal
