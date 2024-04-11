@@ -1,11 +1,12 @@
 - 2024-04-10 Ondřej Sloup <osloup@redhat.com>
 
-  - Rename variable BASH to XMLTO_BASH_PATH (#8)
-  - Fix warnings in the build
-  - Regenerate xmlif to use new version of gcc
-  - Rename and format markdown files
-  - Convert output path to unix on cygwin/msys
-  - Add .gitignore
+  - xmlto.in, Makefile.am, configure.ac: Rename variable BASH to XMLTO_BASH_PATH (#8)
+  - xmlif/xmlif.{c,l}: Regenerate xmlif to use new version of gcc
+  - ChangeLog, {README, NEWS, FAQ, AUTHORS, INSTALL, THANKS}.md: Rename and format markdown files
+  - xmlto.spec.in: Update Fedora spec file generation according to Fedora package repo
+  - xmlto.in: Convert output path to unix on cygwin/msys
+  - .gitignore: Add .gitignore
+  - Makefile.am: Skip validating xmlto man page during build
 
 - 2015-11-18 Ondrej Vasik <ovasik@redhat.com>
 

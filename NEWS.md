@@ -3,10 +3,12 @@
 - 0.0.29 (stable)
 
   - Rename variable BASH to XMLTO_BASH_PATH (#8)
-  - Fix warnings in the build
   - Regenerate xmlif to use new version of gcc
   - Rename and format markdown files
+  - Update Fedora spec file generation according to Fedora package repo
   - Convert output path to unix on cygwin/msys
+  - Add .gitignore
+  - Skip validating xmlto man page during build
 
 - 0.0.28 (stable)
 

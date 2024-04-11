@@ -32,6 +32,6 @@ you should already have `xmlif(1)` manpage on your machine.
 Since xmlto 0.19, xmlto is maintained by Ondřej Vašík (`ovasik@redhat.com`) and
 since 0.29 co-maintained by Ondřej Sloup (`osloup@redhat.com`).
 
-You can contact me directly via email or leave a ticket on the project's Pagure
+You can contact me directly via email or leave a issue on the project's Pagure
 instance at [https://pagure.io/xmlto/new_issue](https://pagure.io/xmlto/new_issue).
 A registered fedoraproject.org account is required for this.
