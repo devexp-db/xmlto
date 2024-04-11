@@ -203,7 +203,7 @@ WS		[ \t\n]*
 
 %x attrib val
 
-%option batch never-interactive fast 8bit
+%option batch never-interactive fast 8bit yywrap
 
 %%
 <INITIAL>\<\?xmlif{WS}if{WS}not{WS}	{BEGIN(attrib); ifsense = FALSE; push_level();}
