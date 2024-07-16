@@ -29,8 +29,8 @@ you should already have `xmlif(1)` manpage on your machine.
 
 # How to contact authors
 
-Since xmlto 0.19, xmlto is maintained by Ondřej Vašík (`ovasik@redhat.com`) and
-since 0.29 co-maintained by Ondřej Sloup (`osloup@redhat.com`).
+Since xmlto 0.0.19, xmlto is maintained by Ondřej Vašík (`ovasik@redhat.com`) and
+since 0.0.29 co-maintained by Ondřej Sloup (`osloup@redhat.com`).
 
 You can contact me directly via email or leave a issue on the project's Pagure
 instance at [https://pagure.io/xmlto/new_issue](https://pagure.io/xmlto/new_issue).
